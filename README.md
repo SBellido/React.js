@@ -1,2 +1,2 @@
-# React.js---Manejo-de-Estado
+# React.js
 Curso de Platzi a cargo de JuanDC
