@@ -1,12 +1,12 @@
 
-function TodoItem() {
+function TodoItem(props) {
   return (
     <li>
       <span>V</span>
-      <p>Trabajar para Ruano</p>
+      <p>{props.text}</p>
       <span>X</span>
     </li>
   );
 }
 
-export { TodoItem }
+export { TodoItem };
