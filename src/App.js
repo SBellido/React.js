@@ -30,7 +30,28 @@ function App() {
     }
   );
 
-  console.log('Los usuarios buscan TODOS de ' + searchValue);
+  const completeTodo = (text) => {
+    /* CREA COPIA DEL ARREGLO "todos" CON SU CONTENIDO ACTUAL 
+    Y AL TODO BUSCADO LO MARCA COMO COMPLETADO*/
+    const newTodos = [...todos];
+    const todoIndex = newTodos.findIndex(
+      (todo) => todo.text == text
+    );
+    newTodos[todoIndex].completed = true;
+    setTodos(newTodos);
+  };
+
+  const deleteTodo = (text) => {
+    /* CREA COPIA DEL ARREGLO "todos" CON SU CONTENIDO ACTUAL 
+    Y ELIMINA EL TODO CON ONCLICK*/
+    const newTodos = [...todos];
+    const todoIndex = newTodos.findIndex(
+      (todo) => todo.text == text
+    );
+    /*BUSCA Y CORTA LA CANTIDAD INDICADA EN ESE INDEX */
+    newTodos.splice(todoIndex, 1)
+    setTodos(newTodos);
+  };
 
   return (
     <>
@@ -46,6 +67,8 @@ function App() {
             key={todo.text} 
             text={todo.text}
             completed={todo.completed}
+            onComplete={() => completeTodo(todo.text)}
+            onDelete={() => deleteTodo(todo.text)}
           />
         ))}
       </TodoList>
